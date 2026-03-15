@@ -755,24 +755,24 @@
         <span class="gallery-sub">Cliquez sur une image pour l'agrandir</span>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item gallery-item--wide">
-          <img src="CE Synthèse N_N-1_N-2.png" alt="Charges Externes — Synthèse N/N-1/N-2" loading="lazy" onclick="openLightbox(this)" />
+        <div class="gallery-item gallery-item--wide" onclick="openLightbox('CE Synthèse N_N-1_N-2.png', 'Charges Externes — Synthèse N / N-1 / N-2')">
+          <img src="CE Synthèse N_N-1_N-2.png" alt="Charges Externes — Synthèse N/N-1/N-2" loading="lazy" />
           <div class="gallery-caption">Charges Externes — Synthèse N / N-1 / N-2</div>
         </div>
-        <div class="gallery-item gallery-item--wide">
-          <img src="SiG & Charges Externes.png" alt="SIG & Charges Externes" loading="lazy" onclick="openLightbox(this)" />
+        <div class="gallery-item gallery-item--wide" onclick="openLightbox('SiG & Charges Externes.png', 'SIG & Charges Externes')">
+          <img src="SiG & Charges Externes.png" alt="SIG & Charges Externes" loading="lazy" />
           <div class="gallery-caption">SIG & Charges Externes</div>
         </div>
-        <div class="gallery-item">
-          <img src="CA Fourni vs Fourni-Pose.png" alt="CA Fourni vs Fourni-Pose" loading="lazy" onclick="openLightbox(this)" />
+        <div class="gallery-item" onclick="openLightbox('CA Fourni vs Fourni-Pose.png', 'CA — Fourni vs Fourni-Pose')">
+          <img src="CA Fourni vs Fourni-Pose.png" alt="CA Fourni vs Fourni-Pose" loading="lazy" />
           <div class="gallery-caption">CA — Fourni vs Fourni-Pose</div>
         </div>
-        <div class="gallery-item">
-          <img src="CA par Bureaux.png" alt="CA par Bureaux" loading="lazy" onclick="openLightbox(this)" />
+        <div class="gallery-item" onclick="openLightbox('CA par Bureaux.png', 'CA par Bureaux')">
+          <img src="CA par Bureaux.png" alt="CA par Bureaux" loading="lazy" />
           <div class="gallery-caption">CA par Bureaux</div>
         </div>
-        <div class="gallery-item">
-          <img src="DSO.png" alt="DSO — Suivi des créances" loading="lazy" onclick="openLightbox(this)" />
+        <div class="gallery-item" onclick="openLightbox('DSO.png', 'DSO — Suivi des créances')">
+          <img src="DSO.png" alt="DSO — Suivi des créances" loading="lazy" />
           <div class="gallery-caption">DSO — Suivi des créances</div>
         </div>
       </div>
@@ -1029,10 +1029,10 @@
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Lightbox
-    function openLightbox(img) {
+    function openLightbox(src, caption) {
       const lb = document.getElementById('lightbox');
-      document.getElementById('lightbox-img').src = img.src;
-      document.getElementById('lightbox-caption').textContent = img.alt;
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').textContent = caption;
       lb.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
