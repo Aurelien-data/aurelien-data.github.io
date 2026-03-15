@@ -754,23 +754,23 @@
         <span class="gallery-sub">Cliquez sur une image pour l'agrandir</span>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item gallery-item--wide" onclick="openLightbox('CE Synthèse N_N-1_N-2.png', 'Charges Externes — Synthèse N / N-1 / N-2')">
+        <div class="gallery-item gallery-item--wide">
           <img src="CE Synthèse N_N-1_N-2.png" alt="Charges Externes — Synthèse N/N-1/N-2" loading="lazy" />
           <div class="gallery-caption">Charges Externes — Synthèse N / N-1 / N-2</div>
         </div>
-        <div class="gallery-item gallery-item--wide" onclick="openLightbox('SiG & Charges Externes.png', 'SIG & Charges Externes')">
+        <div class="gallery-item gallery-item--wide">
           <img src="SiG & Charges Externes.png" alt="SIG & Charges Externes" loading="lazy" />
           <div class="gallery-caption">SIG & Charges Externes</div>
         </div>
-        <div class="gallery-item" onclick="openLightbox('CA Fourni vs Fourni-Pose.png', 'CA — Fourni vs Fourni-Pose')">
+        <div class="gallery-item">
           <img src="CA Fourni vs Fourni-Pose.png" alt="CA Fourni vs Fourni-Pose" loading="lazy" />
           <div class="gallery-caption">CA — Fourni vs Fourni-Pose</div>
         </div>
-        <div class="gallery-item" onclick="openLightbox('CA par Bureaux.png', 'CA par Bureaux')">
+        <div class="gallery-item">
           <img src="CA par Bureaux.png" alt="CA par Bureaux" loading="lazy" />
           <div class="gallery-caption">CA par Bureaux</div>
         </div>
-        <div class="gallery-item" onclick="openLightbox('DSO.png', 'DSO — Suivi des créances')">
+        <div class="gallery-item">
           <img src="DSO.png" alt="DSO — Suivi des créances" loading="lazy" />
           <div class="gallery-caption">DSO — Suivi des créances</div>
         </div>
@@ -1028,25 +1028,34 @@
 
   <script>
     // Lightbox
-    window.openLightbox = function(src, caption) {
+    document.addEventListener('DOMContentLoaded', function() {
       var lb = document.getElementById('lightbox');
-      var img = document.getElementById('lightbox-img');
-      var cap = document.getElementById('lightbox-caption');
-      img.src = src;
-      cap.textContent = caption;
-      lb.className = 'lightbox active';
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-    };
-    window.closeLightbox = function() {
-      var lb = document.getElementById('lightbox');
-      lb.className = 'lightbox';
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-    };
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') window.closeLightbox(); });
+      var lbImg = document.getElementById('lightbox-img');
+      var lbCap = document.getElementById('lightbox-caption');
+
+      document.querySelectorAll('.gallery-item').forEach(function(item) {
+        item.addEventListener('click', function() {
+          var img = item.querySelector('img');
+          var cap = item.querySelector('.gallery-caption');
+          lbImg.src = img.src;
+          lbCap.textContent = cap ? cap.textContent : '';
+          lb.className = 'lightbox active';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      lb.addEventListener('click', function() {
+        lb.className = 'lightbox';
+        document.body.style.overflow = '';
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          lb.className = 'lightbox';
+          document.body.style.overflow = '';
+        }
+      });
+    });
 
     // Animate on scroll — elements visible by default, animated if JS runs
     if ('IntersectionObserver' in window) {
