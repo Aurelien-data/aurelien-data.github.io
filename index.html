@@ -780,18 +780,18 @@
 
     /* ── PROJET VISUAL (image bord à bord en bas de carte) ── */
     .projet-visual {
-      /* sort du padding de la carte grâce au margin négatif */
-      margin-left: -2.5rem;
-      margin-right: -2.5rem;
+      margin-left: -1.75rem;
+      margin-right: -1.75rem;
       margin-top: 1.25rem;
       overflow: hidden;
-      /* pas de border-radius ici : c'est le overflow:hidden de .projet-card qui arrondit */
+      border-radius: 6px;
       flex-shrink: 0;
     }
     .projet-visual img {
       width: 100%;
       height: auto;
       display: block;
+      border-radius: 6px;
       filter: brightness(0.88);
       transition: transform 0.45s ease, filter 0.35s ease;
     }
@@ -814,7 +814,7 @@
       .offres-grid { grid-template-columns: 1fr; }
       .projets-grid { grid-template-columns: 1fr; }
       .projet-card { padding: 1.5rem 1.5rem 0 1.5rem; }
-      .projet-visual { margin-left: -1.5rem; margin-right: -1.5rem; }
+      .projet-visual { margin-left: -0.75rem; margin-right: -0.75rem; border-radius: 4px; }
       .skills-layout { grid-template-columns: 1fr; }
       .skills-nav { position: static; }
       .skills-highlight { grid-template-columns: 1fr; }
@@ -1323,9 +1323,9 @@
       <div class="availability">Disponible pour une nouvelle mission</div>
     </div>
     <div class="contact-grid fade-in">
-      <a href="mailto:apbi.consultant@gmail.com" class="contact-item">
+      <a href="/cdn-cgi/l/email-protection#cfaebfada6e1aca0a1bcbaa3bbaea1bb8fa8a2aea6a3e1aca0a2" class="contact-item">
         <span class="contact-item-icon">✉️</span>
-        <span class="contact-item-value">apbi.consultant@gmail.com</span>
+        <span class="contact-item-value"><span class="__cf_email__" data-cfemail="a4c5d4c6cd8ac7cbcad7d1c8d0c5cad0e4c3c9c5cdc88ac7cbc9">[email&#160;protected]</span></span>
       </a>
       <a href="https://www.linkedin.com/in/aurelien-prat" target="_blank" class="contact-item">
         <span class="contact-item-icon"><img src="logo_linkedin.png" alt="LinkedIn" style="width:28px;height:28px;object-fit:contain;" /></span>
@@ -1348,7 +1348,7 @@
     <span>Consultant Business Intelligence · Data Analyst · SIREN 992 927 947</span>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Animate on scroll
     if ('IntersectionObserver' in window) {
       document.querySelectorAll('.fade-in').forEach(el => {
@@ -1441,15 +1441,4 @@
 
       var startX = 0;
       track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; });
-      track.addEventListener('touchend', function(e) {
-        var diff = startX - e.changedTouches[0].clientX;
-        if (diff > 50 && current < total - 1) goTo(current + 1);
-        if (diff < -50 && current > 0) goTo(current - 1);
-      });
-
-      goTo(0);
-    })();
-  </script>
-
-</body>
-</html>
+      track.addEventListener('touchend', func
