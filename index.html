@@ -128,19 +128,26 @@ nav ul a:hover{color:var(--orange)}
 @media(max-width:760px){.real{grid-template-columns:1fr;gap:16px}.real .shot{max-width:420px}}
 
 /* Agents par métier */
-.ag-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
-.ag{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:12px;padding:20px;display:flex;flex-direction:column}
-.ag:nth-child(2){border-top-color:var(--petrol)}
-.ag:nth-child(3){border-top-color:var(--yellow)}
-.ag:nth-child(4){border-top-color:var(--soft)}
-.ag h3{font-size:1.02rem;color:var(--petrol);margin-bottom:6px}
-.ag .ben{font-size:.92rem;color:var(--txt);margin-bottom:14px}
-.flow-t{font-family:'Roboto Mono',monospace;font-size:.7rem;color:var(--grey-d);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
-.flow{display:flex;flex-direction:column;gap:4px;margin-bottom:14px}
-.flow span{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:.84rem}
+.ag-grid{display:flex;flex-direction:column;gap:18px}
+.ag{background:var(--white);border:1px solid var(--line);border-left:5px solid var(--orange);border-radius:14px;padding:22px;display:grid;grid-template-columns:340px 1fr;gap:28px;align-items:center}
+.ag:nth-child(2){border-left-color:var(--petrol)}
+.ag:nth-child(3){border-left-color:var(--yellow)}
+.ag:nth-child(4){border-left-color:var(--soft)}
+.ag-main{display:flex;gap:16px;align-items:flex-start}
+.ag-ic{flex:0 0 52px;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.ag-ic svg{width:28px;height:28px;display:block}
+.ag:nth-child(1) .ag-ic{background:var(--orange)}
+.ag:nth-child(2) .ag-ic{background:var(--petrol)}
+.ag:nth-child(3) .ag-ic{background:var(--yellow)}
+.ag:nth-child(4) .ag-ic{background:var(--soft)}
+.ag h3{font-size:1.15rem;color:var(--petrol);margin-bottom:6px}
+.ag .ben{font-size:.94rem;color:var(--txt);margin-bottom:10px}
+.flow-t{font-family:'Roboto Mono',monospace;font-size:.7rem;color:var(--grey-d);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.flow{display:flex;align-items:stretch;gap:8px}
+.flow span{flex:1;display:flex;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.88rem}
 .flow span:nth-child(3){border-color:var(--orange);background:#fff6ef}
-.flow i{font-style:normal;color:var(--orange);text-align:center;font-size:.8rem;line-height:1}
-.ag .link{margin-top:auto}
+.flow i{font-style:normal;color:var(--orange);align-self:center;font-size:1.15rem;line-height:1}
+@media(max-width:860px){.ag{grid-template-columns:1fr;gap:18px}.flow{flex-direction:column}.flow span{flex:none}.flow i{transform:rotate(90deg)}}
 .custom-bar{margin-top:24px;background:var(--petrol);color:#fff;border-radius:12px;padding:20px 24px;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;align-items:center}
 .custom-bar p{max-width:640px;font-size:.96rem;color:#dbeaf2}
 .custom-bar b{color:#fff}
@@ -377,51 +384,23 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
     <div class="ag-grid">
 
       <article class="ag">
-        <h3>Agent Marketing &amp; prospection</h3>
-        <p class="ben">Remplissez votre pipeline sans y passer vos journées.</p>
-        <div class="flow-t">Exemple de workflow</div>
-        <div class="flow">
-          <span>Vous définissez votre cible</span><i>↓</i>
-          <span>L'agent repère et qualifie les prospects</span><i>↓</i>
-          <span>Messages personnalisés prêts à envoyer</span>
-        </div>
-        <a class="link" href="#contact">Adapter à mon activité →</a>
+        <div class="ag-main"><div class="ag-ic"><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="9" fill="none" stroke="#fff" stroke-width="2.4"/><circle cx="14" cy="14" r="3.6" fill="#fff"/></svg></div><div><h3>Agent Marketing &amp; prospection</h3><p class="ben">Remplissez votre pipeline sans y passer vos journées.</p><a class="link" href="#contact">Adapter à mon activité →</a></div></div>
+        <div class="ag-flow"><div class="flow-t">Exemple de workflow</div><div class="flow"><span>Vous définissez votre cible</span><i>→</i><span>L'agent repère et qualifie les prospects</span><i>→</i><span>Messages personnalisés prêts à envoyer</span></div></div>
       </article>
 
       <article class="ag">
-        <h3>Agent Commercial</h3>
-        <p class="ben">Arrivez préparé à chaque rendez-vous, ne perdez plus aucune opportunité.</p>
-        <div class="flow-t">Exemple de workflow</div>
-        <div class="flow">
-          <span>Un rendez-vous est planifié</span><i>↓</i>
-          <span>L'agent prépare la fiche client</span><i>↓</i>
-          <span>Relance proposée après l'échange</span>
-        </div>
-        <a class="link" href="#contact">Adapter à mon activité →</a>
+        <div class="ag-main"><div class="ag-ic"><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="9.5" r="4.2" fill="#fff"/><path d="M5.5 23a8.5 8 0 0 1 17 0z" fill="#fff"/></svg></div><div><h3>Agent Commercial</h3><p class="ben">Arrivez préparé à chaque rendez-vous, ne perdez plus aucune opportunité.</p><a class="link" href="#contact">Adapter à mon activité →</a></div></div>
+        <div class="ag-flow"><div class="flow-t">Exemple de workflow</div><div class="flow"><span>Un rendez-vous est planifié</span><i>→</i><span>L'agent prépare la fiche client</span><i>→</i><span>Relance proposée après l'échange</span></div></div>
       </article>
 
       <article class="ag">
-        <h3>Agent Finance</h3>
-        <p class="ben">Gardez la main sur vos encaissements et vos écarts de gestion.</p>
-        <div class="flow-t">Exemple de workflow</div>
-        <div class="flow">
-          <span>Une facture dépasse l'échéance</span><i>↓</i>
-          <span>L'agent détecte et priorise</span><i>↓</i>
-          <span>Relance rédigée et alerte envoyée</span>
-        </div>
-        <a class="link" href="#contact">Adapter à mon activité →</a>
+        <div class="ag-main"><div class="ag-ic"><svg viewBox="0 0 28 28" aria-hidden="true"><text x="14" y="21" text-anchor="middle" style="font:800 20px Montserrat,sans-serif;fill:var(--ink)">€</text></svg></div><div><h3>Agent Finance</h3><p class="ben">Gardez la main sur vos encaissements et vos écarts de gestion.</p><a class="link" href="#contact">Adapter à mon activité →</a></div></div>
+        <div class="ag-flow"><div class="flow-t">Exemple de workflow</div><div class="flow"><span>Une facture dépasse l'échéance</span><i>→</i><span>L'agent détecte et priorise</span><i>→</i><span>Relance rédigée et alerte envoyée</span></div></div>
       </article>
 
       <article class="ag">
-        <h3>Agent Administratif</h3>
-        <p class="ben">Libérez vos équipes des saisies, du tri et des relances courantes.</p>
-        <div class="flow-t">Exemple de workflow</div>
-        <div class="flow">
-          <span>Un document arrive</span><i>↓</i>
-          <span>L'agent trie et extrait les informations</span><i>↓</i>
-          <span>Saisie et classement automatiques</span>
-        </div>
-        <a class="link" href="#contact">Adapter à mon activité →</a>
+        <div class="ag-main"><div class="ag-ic"><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="7" y="4" width="14" height="20" rx="2.5" fill="#fff"/><path d="M10.5 10h7M10.5 14h7M10.5 18h4.5" fill="none" stroke-width="1.8" stroke-linecap="round" style="stroke:var(--petrol)"/></svg></div><div><h3>Agent Administratif</h3><p class="ben">Libérez vos équipes des saisies, du tri et des relances courantes.</p><a class="link" href="#contact">Adapter à mon activité →</a></div></div>
+        <div class="ag-flow"><div class="flow-t">Exemple de workflow</div><div class="flow"><span>Un document arrive</span><i>→</i><span>L'agent trie et extrait les informations</span><i>→</i><span>Saisie et classement automatiques</span></div></div>
       </article>
 
     </div>
