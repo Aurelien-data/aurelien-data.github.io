@@ -110,18 +110,22 @@ nav ul a:hover{color:var(--orange)}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
 .filters button{font-family:'Lato',sans-serif;font-weight:700;font-size:.88rem;border:1.5px solid var(--petrol);background:transparent;color:var(--petrol);padding:7px 16px;border-radius:999px;cursor:pointer}
 .filters button.on,.filters button:hover{background:var(--petrol);color:#fff}
-.reals{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}
-.real{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;gap:16px;align-items:flex-start}
-.real.feat{grid-column:1/-1;border-left:5px solid var(--petrol)}
-.thumb{flex:0 0 96px;width:96px;height:72px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:#e9f0f4;cursor:zoom-in}
-.real h3{font-size:1rem;color:var(--petrol);margin:6px 0 4px}
-.real p{font-size:.9rem;color:var(--txt)}
+.reals{display:flex;flex-direction:column;gap:18px}
+.real{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:center}
+.real.feat{border-left:5px solid var(--petrol)}
+.shot{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.shot-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#6b8797;font-size:.84rem;text-align:center;line-height:1.3;border:2px dashed #b9cfdb;border-radius:10px;background:repeating-linear-gradient(135deg,#eef4f8,#eef4f8 10px,#e7f0f5 10px,#e7f0f5 20px)}
+.shot-ph b{font-weight:700;color:var(--petrol)}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;z-index:1;background:#fff;cursor:zoom-in}
+
+.real h3{font-size:1.15rem;color:var(--petrol);margin:6px 0 4px}
+.real p{font-size:.95rem;color:var(--txt)}
 .real .lnk{margin-top:8px;display:inline-block}
 .subs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .sub{font-size:.82rem;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:6px 10px;color:var(--ink)}
 .sub b{color:var(--petrol)}
 .real.hide{display:none}
-@media(max-width:560px){.thumb{flex-basis:72px;width:72px;height:56px}}
+@media(max-width:760px){.real{grid-template-columns:1fr;gap:16px}.real .shot{max-width:420px}}
 
 /* Agents par métier */
 .ag-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
@@ -305,7 +309,7 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
 
     <div class="reals">
       <article class="real feat" data-cat="bi">
-        <img class="thumb zoom" src="https://raw.githubusercontent.com/Aurelien-data/aurelien-data.github.io/main/ervent.png" alt="Rapports Power BI Ervent" onerror="this.style.display='none'">
+        <div class="shot"><div class="shot-ph"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 6l1.2-2h4.6l1.2 2"/></svg><b>Capture à venir</b><span>Matrice SIG</span></div><img class="zoom" src="https://raw.githubusercontent.com/Aurelien-data/aurelien-data.github.io/main/ervent-sig.png" alt="Ervent : matrice SIG" onerror="this.style.display='none'"></div>
         <div>
           <span class="st client">Projet client</span>
           <h3>Ervent — Rapports Power BI Finance &amp; Production</h3>
@@ -320,7 +324,7 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
       </article>
 
       <article class="real" data-cat="ia">
-        <img class="thumb zoom" src="https://raw.githubusercontent.com/Aurelien-data/aurelien-data.github.io/main/chesscom.png" alt="Agent IA Chesscom Analytics" onerror="this.style.display='none'">
+        <div class="shot"><div class="shot-ph"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 6l1.2-2h4.6l1.2 2"/></svg><b>Capture à venir</b></div><img class="zoom" src="https://raw.githubusercontent.com/Aurelien-data/aurelien-data.github.io/main/chesscom.png" alt="Agent IA Chesscom Analytics" onerror="this.style.display='none'"></div>
         <div>
           <span class="st live">Opérationnel</span>
           <h3>Agent IA conversationnel — Chesscom Analytics</h3>
@@ -331,7 +335,7 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
       </article>
 
       <article class="real" data-cat="ia">
-        <img class="thumb zoom" src="https://raw.githubusercontent.com/Aurelien-data/aurelien-data.github.io/main/agent-emploi.png" alt="Agent de recherche d'emploi" onerror="this.style.display='none'">
+        <div class="shot"><div class="shot-ph"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 6l1.2-2h4.6l1.2 2"/></svg><b>Capture à venir</b></div><img class="zoom" src="https://raw.githubusercontent.com/Aurelien-data/aurelien-data.github.io/main/agent-emploi.png" alt="Agent de recherche d'emploi" onerror="this.style.display='none'"></div>
         <div>
           <span class="st live">Opérationnel</span>
           <h3>Agent de recherche d'emploi</h3>
@@ -341,7 +345,7 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
       </article>
 
       <article class="real" data-cat="bi">
-        <img class="thumb zoom" src="https://raw.githubusercontent.com/Aurelien-data/aurelien-data.github.io/main/power-bi-finance.png" alt="Power BI Finance" onerror="this.style.display='none'">
+        <div class="shot"><div class="shot-ph"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 6l1.2-2h4.6l1.2 2"/></svg><b>Capture à venir</b></div><img class="zoom" src="https://raw.githubusercontent.com/Aurelien-data/aurelien-data.github.io/main/power-bi-finance.png" alt="Power BI Finance" onerror="this.style.display='none'"></div>
         <div>
           <span class="st offre">Offre</span>
           <h3>Power BI Finance</h3>
@@ -352,7 +356,7 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
       </article>
 
       <article class="real" data-cat="bi">
-        <img class="thumb zoom" src="https://raw.githubusercontent.com/Aurelien-data/aurelien-data.github.io/main/esg-csrd.png" alt="Scoring ESG CSRD" onerror="this.style.display='none'">
+        <div class="shot"><div class="shot-ph"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 6l1.2-2h4.6l1.2 2"/></svg><b>Capture à venir</b></div><img class="zoom" src="https://raw.githubusercontent.com/Aurelien-data/aurelien-data.github.io/main/esg-csrd.png" alt="Scoring ESG CSRD" onerror="this.style.display='none'"></div>
         <div>
           <span class="st offre">Offre</span>
           <h3>Scoring ESG / CSRD</h3>
