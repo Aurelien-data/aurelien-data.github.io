@@ -20,7 +20,8 @@ h1,h2,h3{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.15}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 section{padding:64px 0}
 .alt-bg{background:var(--white)}
-.eyebrow{font-family:'Roboto Mono',monospace;color:var(--orange);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.eyebrow{font-family:'Roboto Mono',monospace;color:var(--orange);font-size:clamp(1.05rem,2.2vw,1.3rem);font-weight:500;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.eyebrow::before{content:"";display:inline-block;width:30px;height:3px;border-radius:2px;background:currentColor;vertical-align:middle;margin-right:12px}
 h2{font-size:clamp(1.5rem,4vw,2.1rem);color:var(--petrol);margin-bottom:10px}
 .lead{max-width:680px;color:var(--txt);margin-bottom:30px}
 .tag{font-family:'Roboto Mono',monospace;font-size:.74rem;background:rgba(10,82,117,.1);color:var(--petrol);padding:3px 9px;border-radius:999px;display:inline-block;margin:4px 4px 0 0}
@@ -60,18 +61,32 @@ nav ul a:hover{color:var(--orange)}
 .pick:hover{background:var(--orange);border-color:var(--orange);transform:translateY(-2px)}
 
 /* Offres */
-.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.card{background:var(--white);border-radius:14px;padding:24px;border:1px solid var(--line);border-top:4px solid var(--orange);display:flex;flex-direction:column}
-.card:nth-child(1){border-top-color:var(--petrol)}
-.card:nth-child(2){border-top-color:var(--soft)}
-.card:nth-child(3){border-top-color:var(--orange)}
-.card:nth-child(4){border-top-color:var(--yellow)}
-.card h3{font-size:1.08rem;color:var(--petrol);margin-bottom:8px}
-.card p{font-size:.93rem;color:var(--txt);margin-bottom:12px}
-.card ul{list-style:none;font-size:.88rem;margin-bottom:14px}
-.card li{padding-left:18px;position:relative;margin-bottom:5px}
+.grid4{display:flex;flex-direction:column;gap:18px}
+.card{background:var(--white);border-radius:14px;padding:20px;border:1px solid var(--line);border-left:5px solid var(--orange);display:grid;grid-template-columns:280px 1fr;gap:28px;align-items:center}
+.card:nth-child(1){border-left-color:var(--petrol)}
+.card:nth-child(2){border-left-color:var(--soft)}
+.card:nth-child(3){border-left-color:var(--orange)}
+.card:nth-child(4){border-left-color:var(--yellow)}
+.card h3{font-size:1.25rem;color:var(--petrol);margin-bottom:8px}
+.card p{font-size:.96rem;color:var(--txt);margin-bottom:12px}
+.card ul{list-style:none;font-size:.9rem;margin-bottom:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:6px 18px}
+.card li{padding-left:18px;position:relative}
 .card li::before{content:"→";position:absolute;left:0;color:var(--orange)}
-.card .link{margin-top:auto}
+.card .link{display:inline-block}
+@media(max-width:760px){.card{grid-template-columns:1fr;gap:16px}.card .vis{max-width:320px}}
+
+/* Illustrations */
+.vis{background:linear-gradient(135deg,#e6f0f6,#f6f9fb);border:1px solid var(--line);border-radius:14px;overflow:hidden;line-height:0}
+.vis svg{width:100%;height:auto;display:block}
+.vis-sm{flex:0 0 270px;width:270px}
+.c-p{fill:var(--petrol)}.c-o{fill:var(--orange)}.c-y{fill:var(--yellow)}.c-s{fill:var(--soft)}.c-w{fill:#fff}.c-g{fill:var(--grey)}.c-l{fill:#e3edf3}.c-gr{fill:var(--live)}.c-i{fill:var(--ink)}
+.s-p,.s-o,.s-y,.s-s,.s-w,.s-g{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:3}
+.s-p{stroke:var(--petrol)}.s-o{stroke:var(--orange)}.s-y{stroke:var(--yellow)}.s-s{stroke:var(--soft)}.s-w{stroke:#fff}.s-g{stroke:var(--grey)}
+.t-m{font-family:'Montserrat',sans-serif;font-weight:800}
+.sec-head{display:flex;gap:32px;align-items:center;justify-content:space-between;margin-bottom:30px}
+.sec-head-txt{flex:1}
+.sec-head .lead,.sec-head .legend{margin-bottom:0}
+@media(max-width:760px){.sec-head{flex-direction:column;align-items:flex-start;gap:18px}.vis-sm{flex:none;width:100%;max-width:300px}}
 
 /* Socle data */
 .socle{margin:0 0 22px;background:var(--white);border:1px solid var(--line);border-left:5px solid var(--orange);border-radius:14px;padding:22px 24px;display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:start}
@@ -232,7 +247,7 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
     </article>
 
     <div class="grid4">
-      <article class="card" id="bi">
+      <article class="card" id="bi"><div class="vis"><svg viewBox="0 0 320 200" role="img" aria-label="Illustration : tableau de bord Power BI" xmlns="http://www.w3.org/2000/svg"><rect x="24" y="18" width="272" height="164" rx="12" class="c-w"/><path d="M24 30a12 12 0 0 1 12-12h248a12 12 0 0 1 12 12v8H24z" class="c-p"/><circle cx="40" cy="28" r="4" class="c-o"/><circle cx="54" cy="28" r="4" class="c-y"/><circle cx="68" cy="28" r="4" class="c-s"/><rect x="38" y="52" width="76" height="36" rx="6" class="c-l"/><rect x="46" y="60" width="30" height="5" rx="2.5" class="c-g"/><rect x="46" y="71" width="46" height="10" rx="3" class="c-p"/><rect x="122" y="52" width="76" height="36" rx="6" class="c-l"/><rect x="130" y="60" width="30" height="5" rx="2.5" class="c-g"/><rect x="130" y="71" width="38" height="10" rx="3" class="c-o"/><rect x="206" y="52" width="76" height="36" rx="6" class="c-l"/><rect x="214" y="60" width="30" height="5" rx="2.5" class="c-g"/><rect x="214" y="71" width="50" height="10" rx="3" class="c-y"/><rect x="40" y="144" width="14" height="24" rx="2" class="c-s"/><rect x="60" y="130" width="14" height="38" rx="2" class="c-s"/><rect x="80" y="138" width="14" height="30" rx="2" class="c-s"/><rect x="100" y="116" width="14" height="52" rx="2" class="c-s"/><rect x="120" y="126" width="14" height="42" rx="2" class="c-s"/><rect x="140" y="104" width="14" height="64" rx="2" class="c-o"/><path d="M176 168h110" class="s-g" style="stroke-width:1.5"/><polyline points="180,160 204,146 228,152 252,126 280,106" class="s-o"/><circle cx="280" cy="106" r="5" class="c-o"/></svg></div><div class="card-body">
         <h3>Power BI &amp; pilotage</h3>
         <p>Des tableaux de bord clairs pour piloter votre activité : finance, production, conformité ESG/CSRD.</p>
         <ul>
@@ -241,8 +256,8 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
           <li>Scoring ESG / CSRD</li>
         </ul>
         <a class="link" href="#realisations" data-filter-link="bi">Voir des exemples →</a>
-      </article>
-      <article class="card" id="automatisation">
+      </div></article>
+      <article class="card" id="automatisation"><div class="vis"><svg viewBox="0 0 320 200" role="img" aria-label="Illustration : automatisation des données" xmlns="http://www.w3.org/2000/svg"><rect x="24" y="52" width="68" height="96" rx="8" class="c-w"/><path d="M24 60a8 8 0 0 1 8-8h52a8 8 0 0 1 8 8v10H24z" class="c-o"/><path d="M24 90h68M24 110h68M24 130h68M47 70v78M70 70v78" class="s-g" style="stroke-width:1.5"/><path d="M97 100h19m-6-7 6 7-6 7" class="s-o"/><circle cx="160" cy="100" r="28" fill="none" style="stroke:var(--petrol);stroke-width:8;stroke-dasharray:10.5 11.5"/><circle cx="160" cy="100" r="26" class="c-p"/><circle cx="160" cy="100" r="11" class="c-w"/><path d="M204 100h19m-6-7 6 7-6 7" class="s-o"/><rect x="228" y="52" width="68" height="96" rx="8" class="c-w"/><circle cx="262" cy="88" r="16" class="c-gr"/><path d="M254 88l6 6 11-12" class="s-w" style="stroke-width:4"/><rect x="240" y="116" width="44" height="6" rx="3" class="c-g"/><rect x="246" y="128" width="32" height="6" rx="3" class="c-g"/></svg></div><div class="card-body">
         <h3>Automatisation</h3>
         <p>Fini les exports et copier-coller : vos données circulent et se mettent à jour toutes seules.</p>
         <ul>
@@ -251,8 +266,8 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
           <li>Alertes sur vos indicateurs clés</li>
         </ul>
         <a class="link" href="#contact">En parler →</a>
-      </article>
-      <article class="card" id="agents">
+      </div></article>
+      <article class="card" id="agents"><div class="vis"><svg viewBox="0 0 320 200" role="img" aria-label="Illustration : agent IA qui répond avec des chiffres" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="20" width="276" height="160" rx="14" class="c-w"/><rect x="128" y="34" width="154" height="34" rx="12" class="c-s"/><rect x="142" y="44" width="104" height="6" rx="3" class="c-w"/><rect x="142" y="55" width="66" height="6" rx="3" class="c-w"/><circle cx="46" cy="108" r="14" class="c-p"/><path d="M46 100 l2.6 5.4 5.4 2.6 -5.4 2.6 -2.6 5.4 -2.6 -5.4 -5.4 -2.6 5.4 -2.6z" class="c-y"/><rect x="68" y="84" width="214" height="82" rx="12" class="c-l"/><rect x="82" y="100" width="84" height="6" rx="3" class="c-g"/><rect x="82" y="114" width="64" height="6" rx="3" class="c-g"/><rect x="82" y="128" width="76" height="6" rx="3" class="c-g"/><rect x="196" y="130" width="14" height="22" rx="2" class="c-s"/><rect x="216" y="118" width="14" height="34" rx="2" class="c-p"/><rect x="236" y="124" width="14" height="28" rx="2" class="c-s"/><rect x="256" y="108" width="14" height="44" rx="2" class="c-o"/></svg></div><div class="card-body">
         <h3>Agents IA</h3>
         <p>Un agent qui travaille pour vous : il répond à vos questions sur vos chiffres et exécute des tâches à votre place.</p>
         <ul>
@@ -261,8 +276,8 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
           <li>Tâches répétitives déléguées</li>
         </ul>
         <a class="link" href="#realisations" data-filter-link="ia">Voir des exemples →</a>
-      </article>
-      <article class="card" id="assistants">
+      </div></article>
+      <article class="card" id="assistants"><div class="vis"><svg viewBox="0 0 320 200" role="img" aria-label="Illustration : assistant IA qui aide à rédiger" xmlns="http://www.w3.org/2000/svg"><rect x="36" y="22" width="124" height="156" rx="8" class="c-w"/><rect x="50" y="38" width="56" height="8" rx="4" class="c-o"/><rect x="50" y="58" width="96" height="6" rx="3" class="c-g"/><rect x="50" y="72" width="82" height="6" rx="3" class="c-g"/><rect x="46" y="86" width="108" height="14" rx="4" class="c-y" style="opacity:.55"/><rect x="50" y="90" width="96" height="6" rx="3" class="c-g"/><rect x="50" y="108" width="88" height="6" rx="3" class="c-g"/><rect x="50" y="122" width="96" height="6" rx="3" class="c-g"/><rect x="50" y="136" width="60" height="6" rx="3" class="c-g"/><rect x="138" y="100" width="150" height="66" rx="14" class="c-p"/><path d="M160 166l-6 16 20-16z" class="c-p"/><rect x="154" y="114" width="108" height="6" rx="3" class="c-w"/><rect x="154" y="128" width="84" height="6" rx="3" class="c-w"/><rect x="154" y="142" width="96" height="6" rx="3" class="c-w"/><circle cx="276" cy="96" r="16" class="c-o"/><path d="M276 88 l2.6 5.4 5.4 2.6 -5.4 2.6 -2.6 5.4 -2.6 -5.4 -5.4 -2.6 5.4 -2.6z" class="c-w"/></svg></div><div class="card-body">
         <h3>Assistants IA</h3>
         <p>Un copilote pour vos équipes : il connaît vos documents et vos process, et les aide à avancer plus vite.</p>
         <ul>
@@ -271,16 +286,16 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
           <li>Adapté à chaque métier</li>
         </ul>
         <a class="link" href="#agents-metiers">Voir les agents par métier →</a>
-      </article>
+      </div></article>
     </div>
   </div>
 </section>
 
 <section id="realisations" class="alt-bg">
   <div class="wrap">
-    <div class="eyebrow">Réalisations</div>
+    <div class="sec-head"><div class="sec-head-txt"><div class="eyebrow">Réalisations</div>
     <h2>Des solutions concrètes</h2>
-    <p class="lead">Chaque réalisation indique clairement son statut : projet client, solution opérationnelle ou offre.</p>
+    <p class="lead">Chaque réalisation indique clairement son statut : projet client, solution opérationnelle ou offre.</p></div><div class="vis vis-sm"><svg viewBox="0 0 320 200" role="img" aria-label="Illustration : réalisations livrées" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="24" width="190" height="112" rx="10" class="c-s"/><rect x="56" y="40" width="190" height="112" rx="10" class="c-p" style="opacity:.85"/><rect x="72" y="56" width="200" height="118" rx="10" class="c-w"/><rect x="88" y="72" width="60" height="8" rx="4" class="c-o"/><rect x="90" y="134" width="14" height="26" rx="2" class="c-s"/><rect x="110" y="118" width="14" height="42" rx="2" class="c-s"/><rect x="130" y="128" width="14" height="32" rx="2" class="c-s"/><rect x="150" y="102" width="14" height="58" rx="2" class="c-p"/><polyline points="188,150 208,136 228,142 252,112" class="s-o"/><circle cx="264" cy="62" r="18" class="c-gr"/><path d="M255 62l7 7 12-14" class="s-w" style="stroke-width:4"/></svg></div></div>
 
     <div class="filters">
       <button class="on" data-f="all">Tout</button>
@@ -352,9 +367,9 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
 
 <section id="agents-metiers">
   <div class="wrap">
-    <div class="eyebrow">Sur mesure, par métier</div>
+    <div class="sec-head"><div class="sec-head-txt"><div class="eyebrow">Sur mesure, par métier</div>
     <h2>Un agent IA pour chaque fonction de l'entreprise</h2>
-    <p class="lead">Chaque agent est configuré selon votre activité, vos outils et vos process. Voici, pour chaque métier, ce qu'il fait concrètement pour vous.</p>
+    <p class="lead">Chaque agent est configuré selon votre activité, vos outils et vos process. Voici, pour chaque métier, ce qu'il fait concrètement pour vous.</p></div><div class="vis vis-sm"><svg viewBox="0 0 320 200" role="img" aria-label="Illustration : une gamme d'agents IA par métier" xmlns="http://www.w3.org/2000/svg"><path d="M160 100L66 52M160 100L254 52M160 100L66 148M160 100L254 148" class="s-g" style="stroke-width:2.5;stroke-dasharray:2 7"/><circle cx="160" cy="100" r="28" class="c-p"/><path d="M160 86 l4.5 9.5 9.5 4.5 -9.5 4.5 -4.5 9.5 -4.5 -9.5 -9.5 -4.5 9.5 -4.5z" class="c-y"/><circle cx="66" cy="52" r="22" class="c-o"/><circle cx="66" cy="52" r="11" class="s-w" style="stroke-width:2.5"/><circle cx="66" cy="52" r="4.5" class="c-w"/><circle cx="254" cy="52" r="22" class="c-p"/><circle cx="254" cy="46" r="5" class="c-w"/><path d="M243 62a11 10 0 0 1 22 0z" class="c-w"/><circle cx="66" cy="148" r="22" class="c-y"/><text x="66" y="156" text-anchor="middle" class="t-m c-i" style="font-size:22px">€</text><circle cx="254" cy="148" r="22" class="c-s"/><rect x="246" y="136" width="16" height="22" rx="2.5" class="c-w"/><path d="M250 143h8M250 148h8M250 153h5" class="s-p" style="stroke-width:1.8"/></svg></div></div>
     <div class="ag-grid">
 
       <article class="ag">
@@ -415,9 +430,9 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
 
 <section id="projets" class="alt-bg">
   <div class="wrap">
-    <div class="eyebrow">Projets</div>
+    <div class="sec-head"><div class="sec-head-txt"><div class="eyebrow">Projets</div>
     <h2>Ce sur quoi je travaille</h2>
-    <p class="legend">Chaque projet est classé par nature, avec son objectif et sa finalité.</p>
+    <p class="legend">Chaque projet est classé par nature, avec son objectif et sa finalité.</p></div><div class="vis vis-sm"><svg viewBox="0 0 320 200" role="img" aria-label="Illustration : feuille de route des projets" xmlns="http://www.w3.org/2000/svg"><path d="M36 124H284" class="s-s" style="stroke-width:6"/><path d="M62 110V90" class="s-g" style="stroke-width:2"/><rect x="34" y="44" width="56" height="46" rx="8" class="c-w"/><rect x="42" y="53" width="26" height="6" rx="3" class="c-gr"/><rect x="42" y="65" width="40" height="5" rx="2.5" class="c-g"/><rect x="42" y="75" width="30" height="5" rx="2.5" class="c-g"/><circle cx="62" cy="124" r="14" class="c-gr"/><path d="M56 124l4.5 4.5 8-9" class="s-w" style="stroke-width:3.5"/><rect x="44" y="150" width="36" height="5" rx="2.5" class="c-g"/><path d="M125 110V90" class="s-g" style="stroke-width:2"/><rect x="97" y="44" width="56" height="46" rx="8" class="c-w"/><rect x="105" y="53" width="26" height="6" rx="3" class="c-gr"/><rect x="105" y="65" width="40" height="5" rx="2.5" class="c-g"/><rect x="105" y="75" width="30" height="5" rx="2.5" class="c-g"/><circle cx="125" cy="124" r="14" class="c-gr"/><path d="M119 124l4.5 4.5 8-9" class="s-w" style="stroke-width:3.5"/><rect x="107" y="150" width="36" height="5" rx="2.5" class="c-g"/><path d="M188 110V90" class="s-g" style="stroke-width:2"/><rect x="160" y="44" width="56" height="46" rx="8" class="c-w"/><rect x="168" y="53" width="26" height="6" rx="3" class="c-y"/><rect x="168" y="65" width="40" height="5" rx="2.5" class="c-g"/><rect x="168" y="75" width="30" height="5" rx="2.5" class="c-g"/><circle cx="188" cy="124" r="14" class="c-y"/><circle cx="188" cy="124" r="4.5" class="c-w"/><rect x="170" y="150" width="36" height="5" rx="2.5" class="c-g"/><path d="M251 110V90" class="s-g" style="stroke-width:2"/><rect x="223" y="44" width="56" height="46" rx="8" class="c-w"/><rect x="231" y="53" width="26" height="6" rx="3" class="c-o"/><rect x="231" y="65" width="40" height="5" rx="2.5" class="c-g"/><rect x="231" y="75" width="30" height="5" rx="2.5" class="c-g"/><circle cx="251" cy="124" r="14" class="c-o"/><circle cx="251" cy="124" r="4.5" class="c-w"/><rect x="233" y="150" width="36" height="5" rx="2.5" class="c-g"/></svg></div></div>
     <div class="proj-grid">
 
       <article class="proj">
@@ -464,9 +479,9 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
 
 <section id="methode">
   <div class="wrap">
-    <div class="eyebrow">Méthode</div>
+    <div class="sec-head"><div class="sec-head-txt"><div class="eyebrow">Méthode</div>
     <h2>Un déroulé simple</h2>
-    <p class="lead">Progressif et concret : vous voyez des résultats avant de vous engager plus loin.</p>
+    <p class="lead">Progressif et concret : vous voyez des résultats avant de vous engager plus loin.</p></div><div class="vis vis-sm"><svg viewBox="0 0 320 200" role="img" aria-label="Illustration : une méthode en 4 étapes" xmlns="http://www.w3.org/2000/svg"><rect x="34" y="136" width="58" height="36" rx="4" class="c-s"/><text x="63" y="163" text-anchor="middle" class="t-m c-i" style="font-size:20px">1</text><rect x="98" y="104" width="58" height="68" rx="4" class="c-p"/><text x="127" y="131" text-anchor="middle" class="t-m c-w" style="font-size:20px">2</text><rect x="162" y="72" width="58" height="100" rx="4" class="c-o"/><text x="191" y="99" text-anchor="middle" class="t-m c-w" style="font-size:20px">3</text><rect x="226" y="40" width="58" height="132" rx="4" class="c-y"/><text x="255" y="67" text-anchor="middle" class="t-m c-i" style="font-size:20px">4</text><path d="M255 40V14" class="s-p" style="stroke-width:3"/><path d="M255 14l24 8-24 8z" class="c-o"/><path d="M26 172H296" class="s-g" style="stroke-width:2"/></svg></div></div>
     <div class="steps">
       <div class="step"><h3>Cadrage</h3><p>On choisit le cas d'usage qui apporte le plus de valeur.</p></div>
       <div class="step"><h3>Prototype</h3><p>Une première version rapide, testée sur vos vrais cas.</p></div>
@@ -478,9 +493,9 @@ footer{text-align:center;padding:22px;font-size:.8rem;color:var(--grey-d)}
 
 <section id="apropos" class="alt-bg">
   <div class="wrap">
-    <div class="eyebrow">À propos</div>
+    <div class="sec-head"><div class="sec-head-txt"><div class="eyebrow">À propos</div>
     <h2>Le pont entre le business et la data</h2>
-    <p class="lead">Plus de 10 ans en commerce et marketing avant la data (dont EssilorLuxottica). Je pars de votre objectif métier, puis je choisis l'outil.</p>
+    <p class="lead">Plus de 10 ans en commerce et marketing avant la data (dont EssilorLuxottica). Je pars de votre objectif métier, puis je choisis l'outil.</p></div><div class="vis vis-sm"><svg viewBox="0 0 320 200" role="img" aria-label="Illustration : le pont entre le business et la data" xmlns="http://www.w3.org/2000/svg"><circle cx="268" cy="40" r="15" class="c-y"/><rect x="20" y="130" width="96" height="40" rx="8" class="c-s"/><rect x="204" y="130" width="96" height="40" rx="8" class="c-s"/><path d="M62 104V98h16v6" class="s-p" style="stroke-width:3.5"/><rect x="50" y="104" width="40" height="26" rx="5" class="c-p"/><path d="M50 116h40" class="s-w" style="stroke-width:2"/><rect x="234" y="104" width="36" height="26" class="c-o"/><ellipse cx="252" cy="130" rx="18" ry="6" class="c-o"/><ellipse cx="252" cy="104" rx="18" ry="6" class="c-y"/><path d="M234 117a18 6 0 0 0 36 0" class="s-w" style="stroke-width:2"/><path d="M116 130H204" class="s-p" style="stroke-width:6"/><path d="M116 130Q160 60 204 130" class="s-o" style="stroke-width:4"/><path d="M138 104V130M160 95V130M182 104V130" class="s-o" style="stroke-width:2.5"/></svg></div></div>
     <div class="why">
       <div><h3>Une vision business</h3><p>Je parle priorités commerciales et résultats, pas seulement technologie.</p></div>
       <div><h3>Un profil complet</h3><p>Analyse de données, Power BI, automatisation et IA : un seul interlocuteur.</p></div>
