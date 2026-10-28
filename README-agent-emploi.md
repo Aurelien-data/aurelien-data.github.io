@@ -1,9 +1,17 @@
-# README
-
 # Agent emploi
 
 Agent local qui collecte des offres, les note de 0 à 100 d’après mon profil, les envoie dans Notion et suit mes candidatures.
 **L’agent prépare, je décide** : il n’envoie jamais de candidature et ne supprime rien.
+
+## En clair
+
+- **Le problème** : repérer chaque jour les offres pertinentes parmi des centaines, sans y passer des heures.
+- **Ce que fait l’agent** : il collecte les offres, écarte les doublons et les postes hors de mon niveau, puis note chaque offre d’après des faits vérifiés sur mon parcours.
+- **Ce que je garde** : la décision. Je valide dans Notion et je postule moi-même.
+- **Garde-fou** : rien n’est écrit ni noté en dehors d’un profil de faits vérifiés, donc l’agent n’invente aucune compétence.
+- **Transposable à une PME** : le même principe (collecter, noter selon vos critères, soumettre à validation, suivre les statuts) s’applique à la veille concurrentielle, à la prospection ou au tri de demandes entrantes.
+
+*Projet développé par Aurélien Prat, APBI : Data, Automatisation & IA pour PME.*
 
 ## Workflow
 
